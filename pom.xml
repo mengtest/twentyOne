@@ -68,7 +68,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>gsonTest</finalName>
+		<finalName>twentyOne</finalName>
 
 		<plugins>
 			<plugin>
