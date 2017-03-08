@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+	<property name="logback.log.active" value="logs" />
+	<property name="logback.log.archived" value="logs" />
+    <property name="APP_NAME" value="twentyOne" />
+    
+    <!-- 日志输出格式 -->
+    <property name="ENCODER_PATTERN" value="%d{yyyy-MM-dd  HH:mm:ss.SSS} %-5level %logger{100} - %msg%n" />
+    <contextName>${APP_NAME}</contextName>
+
+    <!-- 控制台日志：输出全部日志到控制台 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>${ENCODER_PATTERN}</Pattern>
+        </encoder>
+    </appender>
+    
+    <!-- 基于日期时间的输出重定向 -->
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${logback.log.active}/${APP_NAME}.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- 每天保存一次日志信息 -->
+			<fileNamePattern>${logback.log.archived}/${APP_NAME}_%d{yyyy_MM_dd}.log
+			</fileNamePattern>
+			<!-- 只保存最近三天的日志记录 -->
+			<maxHistory>720</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${ENCODER_PATTERN}</pattern>
+		</encoder>
+	</appender>
+
+    <!-- <logger name="com.lk" level="double" addtivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger> -->
+
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+</configuration>
