@@ -10,7 +10,7 @@ import javax.ws.rs.Produces;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Path("/api/test")
+@Path("/test")
 @Produces("application/json")
 public class TestAction {
 	private static Logger log = LoggerFactory.getLogger(TestAction.class);

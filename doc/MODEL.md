@@ -1,6 +1,6 @@
 # 数据模型
 
-## mongoDB字典
+## mongoDB数据字典
 ### 用户信息
 ```javascript
 UserInfo
@@ -10,12 +10,14 @@ UserInfo
     nickname: "", // 昵称
     email: "", // 邮箱，找回密码使用
 
+    lastLoginDate: "" // 上次登录时间
+
     updateDate: "" // 更新时间
     createDate: "" // 创建时间
 }
 ```
 
-### 用户密码
+### 用户密码（暂时用不上）
 ```javascript
 PasswordInfo
 {
@@ -39,3 +41,6 @@ GameRecord
     createDate: "" // 创建时间
 }
 ```
+
+## JavaBean数据字典
+### 
