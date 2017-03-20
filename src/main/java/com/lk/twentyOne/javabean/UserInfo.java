@@ -6,6 +6,7 @@ public class UserInfo extends Id {
 	private String username; // 用户账号
 	private String nickname; // 昵称
 	private String email; // 邮箱，找回密码使用
+	private String mobile; // 手机号码
 
 	private Date updateDate; // 更新时间
 	private Date createDate; // 创建时间
@@ -39,5 +40,11 @@ public class UserInfo extends Id {
 	}
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 }

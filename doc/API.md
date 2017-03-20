@@ -8,7 +8,7 @@
     ```javascript
     {
       code: 0, // 状态码，0为正常
-      data: data, // 返回对象json序列化数据
+      data: ${SOME DATA} // 返回对象json序列化数据
     }
     ```
   - 状态码:

@@ -9,6 +9,7 @@ UserInfo
     username: "", // 用户账号
     nickname: "", // 昵称
     email: "", // 邮箱，找回密码使用
+    mobile: "", // 手机号，也能用来登录
 
     lastLoginDate: "" // 上次登录时间
 
@@ -41,6 +42,3 @@ GameRecord
     createDate: "" // 创建时间
 }
 ```
-
-## JavaBean数据字典
-### 
