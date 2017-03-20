@@ -1,10 +1,9 @@
-package com.lk.twentyOne.game;
+package com.lk.twentyOne.card;
+
+import com.lk.twentyOne.game.Game;
 
 public abstract class AbstractCard implements Card {
 
-	private String name;
-	private String description;
-	
 	@Override
 	abstract public void execute(Game game);
 	
@@ -12,12 +11,8 @@ public abstract class AbstractCard implements Card {
 	abstract public void effect(Game game);
 
 	@Override
-	public String getName() {
-		return name;
-	}
+	abstract public String getName();
 
 	@Override
-	public String getDescription() {
-		return description;
-	}
+	abstract public String getDescription();
 }
