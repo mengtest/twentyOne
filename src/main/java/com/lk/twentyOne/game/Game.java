@@ -27,10 +27,17 @@ public class Game {
 	
 	private Date updateDate;
 	
+	/**
+	 * 初始化游戏
+	 */
 	public Game() {
 		// TODO Auto-generated constructor stub
 	}
 	
+	/**
+	 * 拼点结算
+	 * 先循环生效场上的王牌
+	 */
 	public void pk() {
 		if (player1.isNoAction() && player2.isNoAction()) {
 			executeCardsEffect(player1.getEfficientTrumpCard(), player1, player2);
@@ -54,7 +61,7 @@ public class Game {
 	}
 	
 	/**
-	 * 拼点之后造成伤害的方法
+	 * 拼点之后造成伤害
 	 * @param fromPlayer
 	 * @param toPlayer
 	 * @return 返回true时表示游戏结束
@@ -68,7 +75,8 @@ public class Game {
 	}
 
 	/**
-	 * 拼点
+	 * 返回拼点结果
+	 * 
 	 * @return 1：玩家1赢，-1：玩家2赢，0：平局
 	 */
 	private int checkPoint() {
@@ -99,5 +107,13 @@ public class Game {
 	
 	private void executeCardsEffect(Card cards, Player fromPlayer, Player toPlayer) {
 		cards.effect(this);
+	}
+	
+	public void update() {
+		updateDate.setTime(System.currentTimeMillis());
+	}
+
+	public Date getUpdateDate() {
+		return updateDate;
 	}
 }

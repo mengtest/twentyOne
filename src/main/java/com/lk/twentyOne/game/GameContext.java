@@ -19,6 +19,7 @@ import com.lk.twentyOne.util.StringUtil;
 public class GameContext {
 	
 	private static ScheduledExecutorService service;
+	private static long GAME_TIMEOUT = 5 * 60 * 1000;
 	private static long CLEAN_INTERVAL = 10;
 
 	private static Map<String, Game> map = new HashMap<>();
@@ -33,22 +34,26 @@ public class GameContext {
 		return key;
 	}
 	
-	public void clean() {
+	/**
+	 * 清理超时的游戏对象
+	 */
+	public static void clean() {
 		
 		long nowTime = new Date().getTime();
 		Iterator<Entry<String, Game>> iterator = map.entrySet().iterator();
 		
 		while (iterator.hasNext()) {
 			Entry<String, Game> java = iterator.next();
-			java.getValue();// TODO
-			iterator.remove();
+			if (java.getValue().getUpdateDate().getTime() - nowTime > GAME_TIMEOUT) {
+				iterator.remove();
+			}
 		}
 	}
 	
 	public static void runCleanSchedule() {
 		service = Executors.newSingleThreadScheduledExecutor();
 		
-		service.scheduleAtFixedRate(() -> {}, CLEAN_INTERVAL, CLEAN_INTERVAL, TimeUnit.MINUTES);
+		service.scheduleAtFixedRate(() -> clean(), CLEAN_INTERVAL, CLEAN_INTERVAL, TimeUnit.MINUTES);
 	}
 	
 	public static void stopCleanSchedule() {
