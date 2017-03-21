@@ -31,12 +31,14 @@ public class Game {
 	 * 初始化游戏
 	 */
 	public Game() {
-		// TODO Auto-generated constructor stub
+		tableNum = 2;
 	}
 	
 	/**
 	 * 拼点结算
-	 * 先循环生效场上的王牌
+	 * 1. 循环生效场上的王牌
+	 * 2. 判断输赢
+	 * 3. 判断是否结束
 	 */
 	public void pk() {
 		if (player1.isNoAction() && player2.isNoAction()) {
@@ -55,7 +57,7 @@ public class Game {
 			}
 			
 			if (win) {
-				// TODO 有人胜利
+				// TODO 有人胜利，返回结果，销毁游戏类
 			}
 		}
 	}
