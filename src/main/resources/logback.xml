@@ -17,19 +17,19 @@
     </appender>
     
     <!-- 基于日期时间的输出重定向 -->
-	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	<!-- <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>${logback.log.active}/${APP_NAME}.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<!-- 每天保存一次日志信息 -->
+			每天保存一次日志信息
 			<fileNamePattern>${logback.log.archived}/${APP_NAME}_%d{yyyy_MM_dd}.log
 			</fileNamePattern>
-			<!-- 只保存最近三天的日志记录 -->
+			只保存最近三天的日志记录
 			<maxHistory>720</maxHistory>
 		</rollingPolicy>
 		<encoder>
 			<pattern>${ENCODER_PATTERN}</pattern>
 		</encoder>
-	</appender>
+	</appender> -->
 
     <!-- <logger name="com.lk" level="double" addtivity="false">
         <appender-ref ref="STDOUT" />
